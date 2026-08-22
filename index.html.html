@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faiz Ahmad · Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f8fafc;
+      color: #0b1a33;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 20, 40, 0.06);
+      padding: 2.5rem 2rem;
+    }
+
+    /* header / hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #eef2f6;
+      padding-bottom: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #e6f0ff;
+      color: #1a4cff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span {
+      color: #1a4cff;
+    }
+
+    .hero-role {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #2d3a5e;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      max-width: 580px;
+      color: #33415c;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1e2a4a;
+    }
+
+    .stat-item i {
+      font-weight: 300;
+      color: #1a4cff;
+      font-size: 1.1rem;
+    }
+
+    .hero-right {
+      background: #f2f6fe;
+      border-radius: 1.5rem;
+      padding: 1.5rem 2rem;
+      min-width: 220px;
+      margin-top: 1rem;
+    }
+
+    .hero-right p {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #dce5f5;
+    }
+
+    .hero-right p:last-child {
+      border-bottom: none;
+    }
+
+    .hero-right strong {
+      font-weight: 600;
+      color: #0b1a33;
+    }
+
+    .code-snip {
+      background: #0b1a33;
+      color: #c7d9ff;
+      padding: 1.2rem 1.5rem;
+      border-radius: 1rem;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 0.85rem;
+      margin: 1.8rem 0 0.5rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .code-snip span {
+      color: #8cb1ff;
+    }
+
+    .code-snip .var {
+      color: #b3d0ff;
+    }
+
+    .code-snip .return {
+      color: #7ae0b0;
+    }
+
+    /* section */
+    .section {
+      margin-top: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4a5d7e;
+      margin-left: 0.5rem;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .skill-card {
+      background: #f9fcff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #edf2f9;
+      transition: 0.2s;
+    }
+
+    .skill-card:hover {
+      background: white;
+      border-color: #b3cbff;
+    }
+
+    .skill-card h4 {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #0b1a33;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: #3d5277;
+    }
+
+    .exp-item {
+      background: #f9fcff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.8rem;
+      margin-bottom: 1.2rem;
+      border-left: 5px solid #1a4cff;
+    }
+
+    .exp-item .title {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .exp-item .sub {
+      font-weight: 500;
+      color: #1a4cff;
+    }
+
+    .exp-item .meta {
+      font-size: 0.85rem;
+      color: #556b8d;
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #f9fcff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #edf2f9;
+    }
+
+    .project-card .tag {
+      display: inline-block;
+      background: #dce5f5;
+      border-radius: 30px;
+      padding: 0.15rem 0.8rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1a2d4e;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card h4 {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-card .tech {
+      font-size: 0.8rem;
+      color: #3d5277;
+      margin: 0.4rem 0;
+    }
+
+    .project-card .desc {
+      font-size: 0.9rem;
+      color: #2d3a5e;
+    }
+
+    .cert-item {
+      background: #f9fcff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      display: inline-block;
+      border: 1px solid #e0eaf5;
+      margin: 0.25rem 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-contact {
+      margin-top: 3rem;
+      background: #f2f6fe;
+      border-radius: 2rem;
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-contact h3 {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .btn {
+      background: #0b1a33;
+      color: white;
+      padding: 0.8rem 2.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.15s;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .btn:hover {
+      background: #1a4cff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #0b1a33;
+      color: #0b1a33;
+      margin-right: 0.8rem;
+    }
+
+    .btn-outline:hover {
+      background: #0b1a33;
+      color: white;
+    }
+
+    .personal-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2.5rem;
+      background: #f9fcff;
+      padding: 1rem 1.8rem;
+      border-radius: 3rem;
+      margin-top: 1.5rem;
+    }
+
+    .personal-details span {
+      font-size: 0.95rem;
+    }
+
+    .personal-details strong {
+      font-weight: 600;
+      margin-right: 0.2rem;
+    }
+
+    .declaration {
+      font-style: italic;
+      color: #33415c;
+      background: #f2f6fe;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 1.5rem 1rem;
+      }
+      .hero-right {
+        width: 100%;
+      }
+      .footer-contact {
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-badge">✨ Available for opportunities</div>
+      <h1>HELLO, I'M <br /><span>Faiz Ahmad</span></h1>
+      <div class="hero-role">BCA Student · Web Developer</div>
+      <p class="hero-desc">
+        Aspiring software professional with hands-on experience in C++, Python, web development, and SQL. 
+        Passionate about building clean, functional web interfaces and backend logic.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item"><span>📘</span> BCA (pursuing)</div>
+        <div class="stat-item"><span>💻</span> C++ · Python · React</div>
+        <div class="stat-item"><span>📁</span> 2+ projects</div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p><strong>📞</strong> +91 8006796319</p>
+      <p><strong>📧</strong> faizahmadgu2005gmail.com</p>
+      <p><strong>📍</strong> Alpha-2, Greater Noida</p>
+      <p><strong>🎂</strong> 2021 (High school)</p>
+    </div>
+  </div>
+
+  <!-- CODE SNIPPET (playful) -->
+  <div class="code-snip">
+    <span>&lt;?php</span><br />
+    <span class="var">$developer</span> = <span>"Faiz Ahmad"</span>;<br />
+    <span class="var">$role</span> = <span>"Web Developer &amp; BCA Student"</span>;<br />
+    <span class="var">$experience</span> = <span>"1+ year (academic &amp; internships)"</span>;<br />
+    <span class="var">$specialization</span> = <span>"Full Stack (MERN, LAMP)"</span>;<br />
+    <span class="return">return</span> <span>"Let's build something great!"</span>;
+  </div>
+
+  <!-- ABOUT + TECHNICAL SKILLS -->
+  <div class="section">
+    <div class="section-title">⚡ About Me <small> &amp; technical expertise</small></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 2; min-width: 250px;">
+        <p style="margin-bottom: 1rem; color: #1e2a4a;">
+          I am a BCA student at Galgotias University with a strong foundation in programming and web technologies. 
+          I enjoy solving problems with C++ and Python, and I'm equally comfortable building frontend interfaces with React 
+          and backend logic using SQL and MongoDB. I have completed certifications in SQL and workshops on web development.
+        </p>
+        <div class="personal-details">
+          <span><strong>Name</strong> Faiz Ahmad</span>
+          <span><strong>Gender</strong> Male</span>
+          <span><strong>Status</strong> Single</span>
+          <span><strong>Father</strong> Mr. Akil Ahmad</span>
+          <span><strong>📍</strong> Kasganj, UP</span>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 200px; background: #f2f6fe; border-radius: 1.5rem; padding: 1.2rem 1.8rem;">
+        <h4 style="font-weight: 600; margin-bottom: 0.5rem;">🧰 Tech Stack</h4>
+        <div><strong>Languages</strong> C, C++, Python</div>
+        <div><strong>Web</strong> HTML, CSS, JS, React</div>
+        <div><strong>Database</strong> SQL, MongoDB</div>
+        <div><strong>Tools</strong> VS Code, Linux, Windows</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS (expanded) -->
+  <div class="section">
+    <div class="section-title">📌 Technical Skills</div>
+    <div class="grid-2col">
+      <div class="skill-card"><h4>⚙️ C / C++</h4><p>Object-oriented programming, data structures, STL, memory management.</p></div>
+      <div class="skill-card"><h4>🐍 Python</h4><p>Scripting, automation, basic ML (Loan Prediction project).</p></div>
+      <div class="skill-card"><h4>🌐 Web (HTML, CSS, JS, React)</h4><p>Responsive UI, interactive components, React hooks, state management.</p></div>
+      <div class="skill-card"><h4>🗄️ SQL & MongoDB</h4><p>Database design, complex queries, indexing, and NoSQL with Mongoose.</p></div>
+      <div class="skill-card"><h4>📁 Dev Tools</h4><p>Visual Studio, Git, Linux (Ubuntu), Windows 10/11.</p></div>
+      <div class="skill-card"><h4>📌 Area of Interest</h4><p>Web Development (HTML, CSS, JS) & full-stack integration.</p></div>
+    </div>
+  </div>
+
+  <!-- ACADEMIC & PROJECTS -->
+  <div class="section">
+    <div class="section-title">📘 Academic &amp; Projects</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <div style="flex: 1; min-width: 220px;">
+        <div class="exp-item">
+          <div class="title">BCA (Pursuing)</div>
+          <div class="sub">Galgotias University, Greater Noida</div>
+          <div class="meta">2024 – 2027 (expected)</div>
+        </div>
+        <div class="exp-item">
+          <div class="title">Intermediate (12th)</div>
+          <div class="sub">Avanti Bai Inter College (UP Board)</div>
+          <div class="meta">Passed 2024</div>
+        </div>
+        <div class="exp-item">
+          <div class="title">High School (10th)</div>
+          <div class="sub">Mount Litera Zee School, Kasganj (CBSE)</div>
+          <div class="meta">Passed 2021</div>
+        </div>
+      </div>
+      <div style="flex: 2; min-width: 260px;">
+        <div class="project-card" style="margin-bottom: 1rem;">
+          <span class="tag">C++</span>
+          <h4>Recommendation System (C++)</h4>
+          <div class="tech">Team of 2 · Apr–May 2025</div>
+          <div class="desc">Built a collaborative & content-based filtering system using C++ and OOP concepts.</div>
+        </div>
+        <div class="project-card">
+          <span class="tag">Machine Learning</span>
+          <h4>Loan Prediction</h4>
+          <div class="tech">Team of 2 · ongoing</div>
+          <div class="desc">Predictive model using ML techniques; data preprocessing and classification.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS & TRAINING -->
+  <div class="section">
+    <div class="section-title">📜 Certifications &amp; Training</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem;">
+      <span class="cert-item">✅ Oracle Academy – SQL (2025)</span>
+      <span class="cert-item">✅ Web Development Workshop (College)</span>
+      <span class="cert-item">✅ Full Stack Developer Intern – CODEC</span>
+      <span class="cert-item">✅ AI Intern – CODEC Technologies</span>
+    </div>
+  </div>
+
+  <!-- DECLARATION + CONTACT -->
+  <div class="footer-contact">
+    <div>
+      <h3>Let's build something <br />great together.</h3>
+      <p style="color: #2d3a5e; margin-top: 0.3rem;">Open to internships &amp; entry-level roles.</p>
+      <div style="margin-top: 1rem;">
+        <a href="mailto:faizahmadgu2005gmail.com" class="btn">📧 Send Me an Email</a>
+        <a href="#" class="btn btn-outline" style="text-decoration: none;">📄 GitHub</a>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <div style="font-weight: 600;">Faiz Ahmad</div>
+      <div style="font-size: 0.9rem; color: #33415c;">+91 8006796319</div>
+      <div style="font-size: 0.9rem; color: #33415c;">Alpha-2, Greater Noida</div>
+    </div>
+  </div>
+
+  <!-- DECLARATION -->
+  <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+    <div class="declaration">📌 I hereby declare that all the mentioned particulars are true, complete and correct to the best of my knowledge and belief.</div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div style="margin-top: 2rem; font-size: 0.8rem; color: #6b7d9e; text-align: center; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">
+    © 2026 Faiz Ahmad · Built with HTML & CSS
+  </div>
+</div>
+</body>
+</html>
